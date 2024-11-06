@@ -1,14 +1,45 @@
-nav {
+/* NavBar.css */
+
+.NavBar {
     display: flex;
-    justify-content: space-around;
-}
-.NavButtons{
-    display: flex;
-    gap: 10px;
-    justify-content: center; 
-    width: 100%; 
+    justify-content: space-between;
     align-items: center;
+    padding: 10px 20px;
+    background-color: #1a1a1a; /* Fondo oscuro */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
-button {
-    color: white;
+
+.NavBar h3 {
+    font-size: 1.8em;
+    color: #ffffff; /* Texto claro para contraste */
+    margin: 0;
+    text-decoration: none;
+}
+
+.NavBar div {
+    display: flex;
+    gap: 20px;
+}
+
+.Option, .ActiveOption {
+    font-size: 1em;
+    color: #bbbbbb; /* Texto gris claro */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.Option:hover {
+    color: #ffffff; /* Texto blanco al hacer hover */
+}
+
+.ActiveOption {
+    color: #4CAF50; /* Color de acento para el enlace activo */
+    font-weight: bold;
+}
+
+.CartWidget {
+    display: flex;
+    align-items: center;
+    color: #ffffff; /* Texto claro para el carrito */
+    font-size: 1.2em;
 }
