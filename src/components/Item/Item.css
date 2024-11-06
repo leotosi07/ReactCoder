@@ -1,13 +1,13 @@
 .CardItem {
-    max-width: 100%; /* Permite que las cards ocupen el ancho definido por el grid */
+    max-width: 100%; 
 }
 
 .ItemImg {
-    max-width: 100%; /* Hace que la imagen se adapte al tamaño del contenedor */
+    max-width: 100%; 
     height: auto;
     border-radius: 8px;
 }
 
 .ItemHeader {
-    font-size: 1em; /* Ajuste de tamaño de fuente para adaptarse mejor a pantallas pequeñas */
+    font-size: 1em; 
 }
