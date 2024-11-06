@@ -1,0 +1,9 @@
+.CardItem{
+    max-width: 300px;
+}
+.ItemImg{
+    max-width: 200px;
+}
+.ItemHeader{
+    font-size: 15px;
+}

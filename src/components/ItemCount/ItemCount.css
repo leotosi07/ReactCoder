@@ -1,0 +1,8 @@
+.Controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Number {
+    margin: 1rem;
+}
