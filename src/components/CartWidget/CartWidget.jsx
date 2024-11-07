@@ -1,12 +1,26 @@
 import { CartIcon } from '../Icons/Icons'
 import './CartWidget.css'
+import { useCartContext } from "../../context/CartContext"
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
-const CartWidget = () =>{
-    return(
-        <div className='Cart'>
-            <CartIcon/>
-            0
-        </div>
-    )
+
+
+function CartWidget (){
+
+    const { qtyItems } = useCartContext()
+
+
+    return (
+        <section className="Cart">
+                <div className="cart-icon-container">
+                    <Link to="/cart">
+                    <CartIcon/>
+                    </Link>
+                    <span className="qtyItems">{qtyItems}</span>
+                </div>
+        </section>
+    );
 }
-export default CartWidget
+
+export default CartWidget;
