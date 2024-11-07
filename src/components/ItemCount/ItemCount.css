@@ -1,8 +1,70 @@
-.Controls{
+.Counter {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    padding: 0.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    max-width: 120px;
+    margin: 0 auto;
 }
+
+.Controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.Button {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.Button:hover {
+    background-color: #e0e0e0;
+    border-color: #c0c0c0;
+}
+
+.Button:disabled {
+    background-color: #f9f9f9;
+    border-color: #e0e0e0;
+    color: #a0a0a0;
+    cursor: not-allowed;
+}
+
 .Number {
-    margin: 1rem;
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin: 0 1rem;
+}
+
+.AddToCartButton {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #d0d0d0;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.AddToCartButton:hover {
+    background-color: #e0e0e0;
+    border-color: #c0c0c0;
+}
+
+.AddToCartButton:disabled {
+    background-color: #f9f9f9;
+    border-color: #e0e0e0;
+    color: #a0a0a0;
+    cursor: not-allowed;
 }
