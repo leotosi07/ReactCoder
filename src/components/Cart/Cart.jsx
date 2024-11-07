@@ -1,7 +1,7 @@
 import { useCartContext } from "../../context/CartContext";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { addDoc, collection } from "@firebase/firestore";
+import { addDoc, collection, doc, updateDoc, getDoc } from "@firebase/firestore";
 import { db } from "../../services/firebase/FirebaseConfig";
 import Swal from 'sweetalert2';
 import { Loader } from "../Loader/Loader";
@@ -41,11 +41,24 @@ const Cart = () => {
         };
 
         addDoc(ordersCollection, newOrder)
-            .then((doc) => {
+            .then((docRef) => {
+                cart.forEach(async ({ id, qty }) => {
+                    const productRef = doc(db, "Products", id);
+                    const productDoc = await getDoc(productRef);
+                    if (productDoc.exists()) {
+                        const productData = productDoc.data();
+                        const newStock = productData.stock - qty; 
+                        
+                        await updateDoc(productRef, {
+                            stock: newStock
+                        });
+                    }
+                });
+
                 setLoading(false); 
                 Swal.fire({
                     title: '¡Compraste en Premium Pet Shop!',
-                    text: `Tu número de orden es: ${doc.id}. ¡Gracias por tu compra!`,
+                    text: `Tu número de orden es: ${docRef.id}. ¡Gracias por tu compra!`,
                     icon: 'success',
                     confirmButtonText: "Aceptar",
                 }).then(() => {
@@ -54,7 +67,7 @@ const Cart = () => {
                     navigate("/");
                 });
 
-                console.log("Order saved with id: " + doc.id);
+                console.log("Order saved with id: " + docRef.id);
             })
             .catch((error) => {
                 setLoading(false); 
