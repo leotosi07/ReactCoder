@@ -1,33 +1,47 @@
-import { useState, useEffect } from "react"
-import { getProducts,getProductsByCategory } from "../../mocks/asyncMock"
-import ItemList from "../ItemList/ItemList"
-import { useParams } from "react-router-dom"
+import { useState, useEffect } from "react";
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { useParams } from "react-router-dom";
+import ItemList from "../ItemList/ItemList";
+import { db } from "../../services/firebase/FirebaseConfig";
 
 const ItemListContainer = ({ greeting }) => {
-    const [products, setProducts] = useState([])
-
-    const { categoryId } = useParams()
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const { categoryId } = useParams(); // Mover la desestructuración de useParams al inicio.
 
     useEffect(() => {
-        console.log("categoryId:", categoryId);
-        const asyncFunc = categoryId ? getProductsByCategory : getProducts
+        setLoading(true);
 
-        asyncFunc(categoryId)
-            .then(response => {
-                setProducts(response)
+        const collectionRef = categoryId
+            ? query(collection(db, 'Products'), where('category', '==', categoryId))
+            : collection(db, 'Products');
+
+        getDocs(collectionRef)
+            .then(snaps => {
+                const productsAdapted = snaps.docs.map(doc => {
+                    const data = doc.data();
+                    return { id: doc.id, ...data };
+                });
+                setProducts(productsAdapted);
             })
             .catch(error => {
-                console.log(error)
+                console.log("Error al obtener productos:", error);
             })
-    }, [categoryId])
+            .finally(() => {
+                setLoading(false);
+            });
+    }, [categoryId]); // Usar solo un useEffect para Firebase.
 
     return (
         <div>
-            <h1>
-                {greeting}
-            </h1>
-            <ItemList products={products} />
+            <h1>{greeting}</h1>
+            {loading ? (
+                <p>Cargando productos...</p>
+            ) : (
+                <ItemList products={products} />
+            )}
         </div>
-    )
-}
-export default ItemListContainer
+    );
+};
+
+export default ItemListContainer;

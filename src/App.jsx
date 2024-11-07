@@ -1,18 +1,16 @@
-import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import ItemListContainer from './components/ItemListContainer/ItemListContainer'
-import NavBar from './components/NavBar/NavBar'
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
-import { CartProvider } from './context/CartContext'
-
-
+import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import NavBar from './components/NavBar/NavBar';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import { CartProvider } from './context/CartContext';
 
 function App() {
   return (
     <div className='App'>
       <BrowserRouter>
         <CartProvider>
-          <h1>  Premium Pet Shop </h1>
+          <h1>Premium Pet Shop</h1>
           <NavBar />
           <Routes>
             <Route path='/' element={<ItemListContainer />} />
@@ -23,7 +21,7 @@ function App() {
         </CartProvider>
       </BrowserRouter>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
