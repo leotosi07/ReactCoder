@@ -7,8 +7,7 @@ import { db } from "../../services/firebase/FirebaseConfig";
 const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
-    const { categoryId } = useParams(); // Mover la desestructuración de useParams al inicio.
-
+    const { categoryId } = useParams(); 
     useEffect(() => {
         setLoading(true);
 
@@ -30,7 +29,7 @@ const ItemListContainer = ({ greeting }) => {
             .finally(() => {
                 setLoading(false);
             });
-    }, [categoryId]); // Usar solo un useEffect para Firebase.
+    }, [categoryId]); 
 
     return (
         <div>
