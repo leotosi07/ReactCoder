@@ -5,7 +5,7 @@ import { addDoc, collection } from "@firebase/firestore";
 import { db } from "../../services/firebase/FirebaseConfig";
 import Swal from 'sweetalert2';
 import { Loader } from "../Loader/Loader";
-
+import './Cart.css'
 
 const Cart = () => {
     const { qtyItems, cart, total, removeItem, clearCart } = useCartContext();
@@ -44,7 +44,7 @@ const Cart = () => {
             .then((doc) => {
                 setLoading(false); 
                 Swal.fire({
-                    title: '¡Compraste en Premium Pet Shop',
+                    title: '¡Compraste en Premium Pet Shop!',
                     text: `Tu número de orden es: ${doc.id}. ¡Gracias por tu compra!`,
                     icon: 'success',
                     confirmButtonText: "Aceptar",
@@ -70,35 +70,35 @@ const Cart = () => {
 
     if (qtyItems === 0) {
         return (
-            <div className="carrito-vacio">
-                <h1> ¡Ups... tu carrito está vacio!</h1>
+            <div className="cart-empty">
+                <h1> ¡Ups... tu carrito está vacío! </h1>
             </div>
         )
     }
 
     return (
-        <div className="container">
-            {loading && <Loader />} {}
-            <table className="table">
+        <div className="cart-container">
+            {loading && <Loader />}
+            <table className="cart-table">
                 <thead>
-                    <tr className="table">
+                    <tr>
                         <th>#</th>
                         <th>Nombre</th>
                         <th>Precio</th>
                         <th>Cantidad</th>
-                        <th>*</th>
+                        <th>Acción</th>
                     </tr>
                 </thead>
                 <tbody>
                     {cart?.map(({ id, name, price, qty }, index) => {
                         return (
-                            <tr className="tabley" key={index}>
-                                <td className="table">{id}</td>
-                                <td className="table">{name}</td>
-                                <td className="table">${price}</td>
-                                <td className="table">{qty}</td>
-                                <td className="table">
-                                    <button className="btn btn-secondary" onClick={() => handleRemoveItem(id, price, qty)}>
+                            <tr key={index}>
+                                <td>{id}</td>
+                                <td>{name}</td>
+                                <td>${price}</td>
+                                <td>{qty}</td>
+                                <td>
+                                    <button className="remove-item-btn" onClick={() => handleRemoveItem(id, price, qty)}>
                                         x
                                     </button>
                                 </td>
@@ -106,14 +106,14 @@ const Cart = () => {
                         );
                     })}
                     <tr>
-                        <td className="table" colSpan={4}>Precio total</td>
-                        <td> $ {total} </td>
+                        <td colSpan={4}>Precio total</td>
+                        <td> ${total} </td>
                     </tr>
                 </tbody>
             </table>
-            <button className="limpiar-carrito" onClick={handleClearCart}>Limpiar Carrito</button>
+            <button className="clear-cart-btn" onClick={handleClearCart}>Limpiar Carrito</button>
             {!showForm && (
-                <button className="button" onClick={handleGotoform}>
+                <button className="continue-btn" onClick={handleGotoform}>
                     Continuar compra
                 </button>
             )}
@@ -130,7 +130,7 @@ const Cart = () => {
                         <label htmlFor="email">Email:</label>
                         <input type="email" name="email" id="email" placeholder="Ingrese su email" onChange={handleOnChange} />
 
-                        <button className="submit-button" onClick={handleSaveCart}>Finalizar Compra</button>
+                        <button className="submit-btn" onClick={handleSaveCart}>Finalizar Compra</button>
                     </section>
                 </div>
             )}

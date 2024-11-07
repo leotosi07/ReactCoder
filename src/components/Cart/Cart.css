@@ -1,0 +1,111 @@
+/* Estilos generales para el carrito */
+.cart-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #fff; /* Establecer el color de texto blanco globalmente para el carrito */
+    background-color: #333; /* Fondo oscuro para contrastar con el texto blanco */
+}
+
+.cart-empty {
+    text-align: center;
+    margin-top: 50px;
+    color: white; /* Asegurarse que el texto también sea blanco */
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.cart-table th,
+.cart-table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.cart-table th {
+    background-color: #555; /* Fondo gris oscuro para las cabeceras de la tabla */
+    color: white; /* Asegurar que el texto de las cabeceras sea blanco */
+}
+
+.cart-table td {
+    background-color: #444; /* Fondo un poco más claro que el encabezado para las celdas */
+    color: white; /* Asegurar que el texto de las celdas sea blanco */
+}
+
+.remove-item-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.remove-item-btn:hover {
+    background-color: #ff5555;
+}
+
+.clear-cart-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.clear-cart-btn:hover {
+    background-color: #e53935;
+}
+
+.continue-btn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.continue-btn:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para el formulario */
+.form-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #444; /* Fondo oscuro para el formulario */
+    border-radius: 5px;
+    color: white; /* Texto blanco dentro del formulario */
+}
+
+.form label {
+    display: block;
+    margin-bottom: 5px;
+    color: white; /* Asegurarse que las etiquetas sean blancas */
+}
+
+.form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: white; /* Asegurarse que el texto de los inputs sea blanco */
+    background-color: #555; /* Fondo gris oscuro para los inputs */
+}
+
+.submit-btn {
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #1976d2;
+}
