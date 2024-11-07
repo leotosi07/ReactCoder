@@ -16,10 +16,10 @@
 }
 
 .ItemImg.out-of-stock {
-    filter: grayscale(100%);  /* Aplica la escala de grises */
-    opacity: 0.6;  /* Opcional: Reduce la opacidad para hacerlo ver más deshabilitado */
+    filter: grayscale(100%);  
+    opacity: 0.6;  
 }
 
 .ItemImg:hover {
-    filter: none; /* Remueve el filtro al pasar el mouse, solo si tiene stock */
+    filter: none; 
 }
