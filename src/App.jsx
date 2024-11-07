@@ -11,7 +11,6 @@ function App() {
     <div className='App'>
       <BrowserRouter>
         <CartContextProvider>
-          <h1>Premium Pet Shop</h1>
           <NavBar />
           <Routes>
             <Route path='/' element={<ItemListContainer />} />

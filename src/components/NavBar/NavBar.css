@@ -1,14 +1,19 @@
-/* NavBar.css */
-
+/* Asegurarse de que el NavBar esté fijo en la parte superior */
 .NavBar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 10px 20px;
     background-color: #1a1a1a; /* Fondo oscuro */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    position: fixed;         /* Fijar el nav en la parte superior */
+    top: 0;                  /* Colocar el nav en la parte superior */
+    left: 0;                 /* Colocar el nav alineado a la izquierda */
+    width: 100%;             /* Asegurarse de que ocupe todo el ancho */
+    z-index: 1000;           /* Colocar el nav encima de otros elementos */
 }
 
+/* Estilo para el título en el NavBar */
 .NavBar h3 {
     font-size: 1.8em;
     color: #ffffff; /* Texto claro para contraste */
@@ -16,11 +21,13 @@
     text-decoration: none;
 }
 
+/* Estilo para el contenedor de los enlaces de la categoría */
 .NavBar div {
     display: flex;
     gap: 20px;
 }
 
+/* Estilo de los enlaces (no activos) */
 .Option, .ActiveOption {
     font-size: 1em;
     color: #bbbbbb; /* Texto gris claro */
@@ -28,18 +35,26 @@
     transition: color 0.3s ease;
 }
 
+/* Estilo para el hover de los enlaces */
 .Option:hover {
     color: #ffffff; /* Texto blanco al hacer hover */
 }
 
+/* Estilo para el enlace activo */
 .ActiveOption {
     color: #4CAF50; /* Color de acento para el enlace activo */
     font-weight: bold;
 }
 
+/* Estilo para el widget del carrito */
 .CartWidget {
     display: flex;
     align-items: center;
     color: #ffffff; /* Texto claro para el carrito */
     font-size: 1.2em;
+}
+
+/* Asegurarse de que el contenido principal no quede debajo del NavBar */
+.App {
+    margin-top: 80px; /* Ajusta el margen superior para dejar espacio para el NavBar */
 }

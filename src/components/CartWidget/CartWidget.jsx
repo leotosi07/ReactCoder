@@ -14,6 +14,7 @@ function CartWidget (){
     return (
         <section className="Cart">
                 <div className="cart-icon-container">
+
                     <Link to="/cart">
                     <CartIcon/>
                     </Link>
