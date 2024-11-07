@@ -2,7 +2,7 @@ import { useCartContext } from "../../context/CartContext";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { addDoc, collection, doc, updateDoc, getDoc } from "@firebase/firestore";
-import { db } from "../../services/firebase/FirebaseConfig";
+import { db } from "../../services/firebase/firebaseconfig" ;
 import Swal from 'sweetalert2';
 import { Loader } from "../Loader/Loader";
 import './Cart.css'
