@@ -11,3 +11,15 @@
 .ItemHeader {
     font-size: 1em; 
 }
+.ItemImg {
+    transition: filter 0.3s ease;
+}
+
+.ItemImg.out-of-stock {
+    filter: grayscale(100%);  /* Aplica la escala de grises */
+    opacity: 0.6;  /* Opcional: Reduce la opacidad para hacerlo ver más deshabilitado */
+}
+
+.ItemImg:hover {
+    filter: none; /* Remueve el filtro al pasar el mouse, solo si tiene stock */
+}
